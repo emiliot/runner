@@ -35,6 +35,6 @@ class UserTest < ActiveSupport::TestCase
   	user.name = "Juanito"
   	user.password = "123456"
   	user.email = "emilio.tirado57@gmail.com"
-  	assert user.save
+  	assert user.save, "User not saved"
   end
 end
