@@ -21,4 +21,20 @@ class UserTest < ActiveSupport::TestCase
   	user.password = "123456"
   	assert_not user.save, "Saved user without email"
   end
+
+  test "password should have length between 6 and 20 characters" do
+  	user = User.new
+  	user.name = "Juanito"
+  	user.password = "12345"
+  	user.email = "emilio.tirado57@gmail.com"
+  	assert_not user.save, "Saved without password with length correct"
+  end
+
+  test "saving correct user" do
+  	user = User.new
+  	user.name = "Juanito"
+  	user.password = "123456"
+  	user.email = "emilio.tirado57@gmail.com"
+  	assert user.save
+  end
 end
