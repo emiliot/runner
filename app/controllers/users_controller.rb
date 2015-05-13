@@ -1,21 +1,46 @@
 class UsersController < ApplicationController
 	
 	def index
-		User.all
+		@users = User.all
+		render :index, format: :json, status: :ok
 	end
 
 	def create
 		@user = User.create(user_params)
+		if @user.save
+			render :create, format: :json, status: :created
+		else
+			puts @user.errors.messages
+			render :create, format: :json, status: :bad_request
+		end
 	end
 
 	def update
-		@user = User.find(params[:id])
-		@user.update(user_params)
+		if User.exists?(params[:id])
+			@user = User.find(params[:id])
+			if @user.update(user_params)
+				render :update, format: :json, status: :ok
+			else
+				render :update, format: :json, status: :bad_request
+			end
+		else
+			puts "test #{params[:id]}"
+			render :update, status: :not_found
+		end
+		
 	end
 
 	def destroy
-		@user = User.find(params[:id])
-		@user.destroy
+		if User.exists?(params[:id])
+			@user = User.find(params[:id])
+			if @user.destroy
+				render :destroy, status: :no_content
+			else
+				render :destroy, status: :internal_server_error
+			end
+		else
+			render :destroy, status: :not_found
+		end
 	end
 
 	def login
@@ -23,6 +48,6 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.permit(:name, :email, :password, :gender, :birthday)
+			params.require(:user).permit(:name, :email, :password, :gender, :birthday)
 		end
 end

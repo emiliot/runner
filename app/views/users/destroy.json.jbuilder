@@ -1,1 +1,0 @@
-json.head 'no-content'
