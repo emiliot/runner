@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-	validates :name, presence: true
-	validates :email, presence: true
-	validates :password, presence: true, length: { in: 6..20 }
+  # Include default devise modules.
+  devise :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :trackable, :validatable,
+          :confirmable, :omniauthable
+  include DeviseTokenAuth::Concerns::User
 end
