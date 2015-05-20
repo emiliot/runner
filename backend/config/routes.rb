@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  scope '/api/v1' do
+    resources :users, except: [:new, :edit]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -3,7 +3,7 @@
 angular.module('frontend')
 	.factory('User', [ 'railsResourceFactory',  function(railsResourceFactory){
 		return railsResourceFactory({
-			url: '/api/users', 
+			url: '/api/v1/users', 
 			name: 'user'
 		});
 	}]);
