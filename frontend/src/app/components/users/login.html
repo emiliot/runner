@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <form ng-submit="submitLogin(user)" role="form" ng-init="user = {}">
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <input type="email" class="form-control" ng-model="user.email" placeholder="username" required autofocus/>
+                <input type="password" class="form-control" ng-model="user.password" placeholder="password" required/>
+
+                <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+            </form>
+        </div>
+        
+    </div>
+	
+</div>

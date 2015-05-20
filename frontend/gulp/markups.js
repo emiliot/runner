@@ -11,9 +11,9 @@ module.exports = function(options) {
       path.extname = '.html';
     }
 
-    return gulp.src(options.src + '/app/**/*.jade')
-      .pipe($.consolidate('jade', { basedir: options.src, doctype: 'html', pretty: '  ' })).on('error', options.errorHandler('Jade'))
-      .pipe($.rename(renameToHtml))
+    return gulp.src(options.src + '/app/**/*.html')
+      // .pipe($.consolidate('jade', { basedir: options.src, doctype: 'html', pretty: '  ' })).on('error', options.errorHandler('Jade'))
+      // .pipe($.rename(renameToHtml))
       .pipe(gulp.dest(options.tmp + '/serve/app/'))
       .pipe(browserSync.reload({ stream: true }));
   });

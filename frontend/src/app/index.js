@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('frontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap', 'rails'])
+angular.module('frontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap', 'rails', 'ng-token-auth'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
