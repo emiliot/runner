@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('frontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap', 'rails', 'ng-token-auth'])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       .state('home', {
         url: '/',
@@ -23,6 +23,9 @@ angular.module('frontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', '
         templateUrl : 'app/components/register/registers.html',
         controller: 'RegisterCtrl'
       });
+
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
 
     $urlRouterProvider.otherwise('/');
   })
