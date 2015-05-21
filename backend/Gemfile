@@ -7,8 +7,10 @@ gem 'spring', :group => :development
 gem 'sqlite3'
 gem 'devise_token_auth'
 gem 'omniauth'
+gem 'faker'
+gem 'factory_girl_rails'
 
-group :test do
+group :test, :test do
   gem 'rspec-rails'
 end
 

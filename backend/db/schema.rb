@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20150520043759) do
     t.string   "unconfirmed_email"
     t.string   "name"
     t.string   "nickname"
-    t.string   "image"
     t.string   "email"
     t.text     "tokens"
     t.datetime "created_at"
