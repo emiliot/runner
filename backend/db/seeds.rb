@@ -12,15 +12,19 @@ User.create!([
 			email: 'e@a.com', 
 			password: '12345678', 
 			password_confirmation: '12345678', 
-			uid: 'e@a.com', provider: 'toptal', 
-			confirmed_at: Time.zone.now 
+			uid: 'e@a.com', 
+			provider: 'toptal', 
+			confirmed_at: Time.zone.now,
+			admin: true
 		},
 		{ 
 			name: 'Elizabeth Usaqui', 
 			email: 'e@b.com', 
 			password: '12345678', 
 			password_confirmation: '12345678', 
-			uid: 'e@a.com', provider: 'toptal', 
-			confirmed_at: Time.zone.now 
+			uid: 'e@a.com', 
+			provider: 'toptal', 
+			confirmed_at: Time.zone.now,
+			admin: false
 		},
 	])
