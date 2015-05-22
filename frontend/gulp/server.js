@@ -24,7 +24,7 @@ module.exports = function(options) {
       baseDir: baseDir,
       routes: routes,
       middleware: [
-        proxyMiddleware('/api', { target : 'http://localhost:3000'})
+        proxyMiddleware('/api/v1', { target: 'http://localhost:3000'})
       ]
     };
 
@@ -40,15 +40,15 @@ module.exports = function(options) {
     selector: '[ng-app]'// Only needed for angular apps
   }));
 
-  gulp.task('rails', function(){
+  gulp.task('rails', function() {
     exec("cd ../backend/ && rails server");
-  })
+  });
+
+  gulp.task('serve:full-stack', ['rails', 'serve']);
 
   gulp.task('serve', ['watch'], function () {
     browserSyncInit([options.tmp + '/serve', options.src]);
   });
-
-  gulp.task('serve:full-stack', ['rails', 'serve']);
 
   gulp.task('serve:dist', ['build'], function () {
     browserSyncInit(options.dist);
