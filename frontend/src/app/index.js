@@ -15,12 +15,6 @@ angular.module('frontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
 		templateUrl : 'app/components/users/login.html',
 		controller: 'UserLoginCtrl'
 	})
-	.state('register', {
-		url: '/registers',
-		templateUrl : 'app/components/register/registers.html',
-		controller: 'RegisterCtrl'
-	})
-
 	.state('runner', {
 		url: '/runner',
 		abstract: true,
