@@ -6,10 +6,10 @@ angular.module('frontend')
 
 	.state('home', {
 		url: '/',
-		templateUrl: 'app/main/main.html',
-		controller: 'MainCtrl'
+		templateUrl: 'app/components/public/home.html',
+		controller: 'PublicCtrl'
 	})
-	
+
 	.state('login', {
 		url: '/login',
 		templateUrl : 'app/components/users/login.html',
