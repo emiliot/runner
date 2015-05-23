@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('frontend')
-	.controller('UserLoginCtrl', ['$scope', 'User','$auth', function($scope, User, $auth){
+	.controller('UserLoginCtrl', ['$scope','$auth', function($scope, $auth){
 		$scope.user = {};
 		$scope.newUser = {};
 

@@ -9,35 +9,12 @@ angular.module('frontend')
 		templateUrl: 'app/main/main.html',
 		controller: 'MainCtrl'
 	})
+	
 	.state('login', {
 		url: '/login',
 		templateUrl : 'app/components/users/login.html',
 		controller: 'UserLoginCtrl'
 	})
-	.state('runner', {
-		url: '/runner',
-		abstract: true,
-		template: '<ui-view/>',
-		resolve: {
-			auth: function($auth){
-				return $auth.validateUser();
-			}
-		}
-	})
-	.state('admin', {
-		url: '/admin',
-		templateUrl: 'app/components/users/users.html',
-		controller: 'UserCtrl'
-	})
-	.state('runner.home', {
-		url: '/home',
-		templateUrl: 'app/components/runner/home.html',
-		controller: 'RunnerCtrl'
-	})
-	.state('runner.account', {
-		url: '/account',
-		templateUrl: 'app/components/users/account.html'
-	});
 
 	$locationProvider.html5Mode(true);
 	$urlRouterProvider.otherwise('/');

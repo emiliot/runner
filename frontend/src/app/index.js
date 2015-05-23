@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('frontend', [
-	
+	'frontend.admin',
+	'frontend.runner',
+	'frontend.public',
 
 	'ngAnimate', 
 	'ngCookies', 
