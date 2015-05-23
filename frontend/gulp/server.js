@@ -24,7 +24,7 @@ module.exports = function(options) {
       baseDir: baseDir,
       routes: routes,
       middleware: [
-        proxyMiddleware('/api/v1', { target: 'http://localhost:3000'})
+        proxyMiddleware('/api/v1', { target: 'http://localhost:3000/api/v1'})
       ]
     };
 

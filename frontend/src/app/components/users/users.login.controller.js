@@ -6,7 +6,13 @@ angular.module('frontend')
 		$scope.newUser = {};
 
 		$scope.submitLogin = function(user){
-			console.log(user);
+			$auth.submitLogin(user)
+				.then(function(resp){
+					console.log(resp);
+				})
+				.catch(function(resp){
+					console.log('error', resp);
+				});
 		};
 
 		$scope.registerUser = function(user){

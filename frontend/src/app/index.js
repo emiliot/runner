@@ -44,6 +44,6 @@ angular.module('frontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
 
 }).config(function($authProvider){
 	$authProvider.configure({
-		apiUrl: 'http://localhost:3000'
+		apiUrl: 'http://localhost:3000/api/v1'
 	});
 });
