@@ -29,9 +29,10 @@ angular.module('frontend')
 		templateUrl: 'app/components/users/users.html',
 		controller: 'UserCtrl'
 	})
-	.state('runner.runs', {
-		url: '/runs',
-		templateUrl: 'app/components/runs/runs.html',
+	.state('runner.home', {
+		url: '/home',
+		templateUrl: 'app/components/runner/home.html',
+		controller: 'RunnerCtrl'
 	})
 	.state('runner.account', {
 		url: '/account',
