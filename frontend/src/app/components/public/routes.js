@@ -13,12 +13,12 @@ angular.module('frontend.public')
         .state('public.home', {
             url: "/home",
             controller: 'public.HomeController',
-            templateUrl: 'main/main.html',
+            templateUrl: 'app/main/main.html',
         })
     
         .state('public.login', {
             url: "/login",
-            templateUrl: 'components/users/login.html',
+            templateUrl: 'app/components/users/login.html',
             controller: 'LoginController'
         })
 }]);

@@ -13,7 +13,7 @@ User.create!([
 			password: '12345678', 
 			password_confirmation: '12345678', 
 			uid: 'e@a.com', 
-			provider: 'toptal', 
+			provider: 'email', 
 			confirmed_at: Time.zone.now,
 			admin: true
 		},
@@ -22,8 +22,8 @@ User.create!([
 			email: 'e@b.com', 
 			password: '12345678', 
 			password_confirmation: '12345678', 
-			uid: 'e@a.com', 
-			provider: 'toptal', 
+			uid: 'e@b.com', 
+			provider: 'email', 
 			confirmed_at: Time.zone.now,
 			admin: false
 		},

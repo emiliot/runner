@@ -21,13 +21,9 @@ angular.module('frontend', [
 	});
 }).run(["$rootScope", "$state", "$location", function($rootScope, $state, $location){
 	$rootScope.$on('auth:login-success', function(evt, user){
-		$state.go('runner.home');
+		if(user.admin)
+			$state.go('admin.home');
+		else
+			$state.go('runner.home');
 	});
-
-	// $rootScope.$on('auth:login-error', function(evt, reason){
-	// 	console.log(reason);
-	// 	$state.go('login');
-	// });
-	
-	//TODO: prevent default and check authorization for a valid login
 }]);
