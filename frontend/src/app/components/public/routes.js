@@ -12,8 +12,8 @@ angular.module('frontend.public')
         
         .state('public.home', {
             url: "/home",
-            controller: 'public.HomeController',
-            templateUrl: 'app/main/main.html',
+            controller: 'PublicCtrl',
+            templateUrl: 'app/components/public/home.html',
         })
     
         .state('public.login', {

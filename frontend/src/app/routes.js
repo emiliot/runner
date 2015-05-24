@@ -1,22 +1,18 @@
 'use strict';
 
 angular.module('frontend')
-	.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'Roles', 
+        function ($stateProvider, $urlRouterProvider, $locationProvider, Roles) {
 	$stateProvider
-
-	.state('home', {
-		url: '/',
-		templateUrl: 'app/components/public/home.html',
-		controller: 'PublicCtrl'
-	})
-
-	.state('login', {
-		url: '/login',
-		templateUrl : 'app/components/users/login.html',
-		controller: 'UserLoginCtrl'
-	})
+	.state('main', {
+        url: '/main',
+        controller: 'MainCtrl',
+        data: {
+            access: Roles.anon.level
+        }
+    });
 
 	$locationProvider.html5Mode(true);
-	$urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('/main');
 
-});
+}]);

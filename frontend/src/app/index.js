@@ -12,11 +12,12 @@ angular.module('frontend', [
 	'ui.router', 
 	'ui.bootstrap', 
 
-]).run(["$rootScope", "$state", "$location", function($rootScope, $state, $location){
-	// $rootScope.$on('auth:login-success', function(evt, user){
-	// 	if(user.admin)
-	// 		$state.go('admin.home');
-	// 	else
-	// 		$state.go('runner.home');
-	// });
+]).run(["$rootScope", "$state", "AuthService", function($rootScope, $state, AuthService){
+	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+		console.log(toState);
+		if(!AuthService.authorize(toState.data.access)){
+			event.preventDefault();
+			$state.go('public.login');
+		}
+	});
 }]);
