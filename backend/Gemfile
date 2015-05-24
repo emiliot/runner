@@ -4,16 +4,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 gem 'rails-api'
 gem 'spring', :group => :development
-gem 'sqlite3'
-gem 'devise_token_auth'
-gem 'omniauth'
-gem 'faker'
-gem 'factory_girl_rails'
+gem 'jwt'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'sqlite3'
 
-group :test, :test do
-  gem 'rspec-rails'
-end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
