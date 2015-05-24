@@ -6,7 +6,7 @@ angular.module('frontend.admin')
 	.state('admin', {
 		url: '/admin',
 		abstract: true,
-		template: 'app/components/admin/layout.html',
+		templateUrl: 'app/components/admin/layout.html',
 		data : {
 			access : 2
 		}
