@@ -1,22 +1,21 @@
 'use strict';
 
 angular.module('frontend')
-.controller('NavbarCtrl', [ '$scope', '$rootScope', function ($scope, $rootScope) {
-	$scope.user = {
-		name : '',
-	}
-	
-	// $rootScope.$on('auth:login-success', function(evt, user){
-	// 	$scope.user = user;
-	// });
+.controller('NavbarCtrl', [ '$scope', '$rootScope', 'CurrentUser', 'AuthService', '$state',
+	function ($scope, $rootScope, CurrentUser, AuthService, $state) {
+	if(AuthService.isAuthenticated())
+		$scope.user = CurrentUser.user();
+	else
+		$scope.user = {};
 
-	// $scope.signOut = function(){
-	// 	$auth.signOut()
- //        .then(function(resp) {
- //        	console.log(resp);
- //        })
- //        .catch(function(resp) {
- //        	console.log('error in signOut', resp);
- //        });
-	// }
+
+	$rootScope.$on('auth:successful-sign-in', function(){
+		$scope.user = CurrentUser.user();
+	});
+
+	$scope.signOut = function(){
+		AuthService.logout();
+		$scope.user = {};
+		$state.go('public.home');
+	}
 }]);

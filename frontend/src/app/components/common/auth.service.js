@@ -26,7 +26,6 @@ angular.module('frontend.common')
 		login: function(credentials) {
 			var login = $http.post(Api.url + '/auth', credentials);
 			login.success(function(result) {
-				console.log(result);
 				LocalService.set('auth_token', JSON.stringify(result));
 			});
 			return login;
