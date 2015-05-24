@@ -2,7 +2,7 @@
 
 angular.module('frontend.common')
 .factory('AuthService', ["$http", "LocalService", "Roles", "CurrentUser","Api", 
-	function($http, LocalService, Roles, User, CurrentUser, Api) {
+	function($http, LocalService, Roles, CurrentUser, Api) {
 	return {
 		authorize: function(access) {
 			if (access === Roles.runner.level) {
@@ -24,7 +24,7 @@ angular.module('frontend.common')
 			return false;
 		},
 		login: function(credentials) {
-			var login = $http.post(Roles.api + '/auth', credentials);
+			var login = $http.post(Api.url + '/auth', credentials);
 			login.success(function(result) {
 				LocalService.set('auth_token', JSON.stringify(result));
 			});

@@ -13,5 +13,4 @@ angular.module('frontend.common').constant('Roles', {
     	state : 'runner.home',
     	level : 2
     },
-    api : '/api/v1'
 });
