@@ -5,8 +5,8 @@ var browserSync = require('browser-sync');
 var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
-var proxyMiddleware = require('http-proxy-middleware');
-var exec = require('child_process').exec;
+
+var middleware = require('./proxy');
 
 module.exports = function(options) {
 
@@ -22,29 +22,24 @@ module.exports = function(options) {
 
     var server = {
       baseDir: baseDir,
-      routes: routes,
-      middleware: [
-        proxyMiddleware('/api/v1', { target: 'http://localhost:3000/api/v1'})
-      ]
+      routes: routes
     };
 
+    if(middleware().length > 0) {
+      server.middleware = middleware();
+    }
+
     browserSync.instance = browserSync.init({
-      port: 9000,
       startPath: '/',
       server: server,
-      browser: browser
+      browser: browser,
+      port : 9000
     });
   }
 
   browserSync.use(browserSyncSpa({
     selector: '[ng-app]'// Only needed for angular apps
   }));
-
-  gulp.task('rails', function() {
-    exec("cd ../backend/ && rails server");
-  });
-
-  gulp.task('serve:full-stack', ['rails', 'serve']);
 
   gulp.task('serve', ['watch'], function () {
     browserSyncInit([options.tmp + '/serve', options.src]);

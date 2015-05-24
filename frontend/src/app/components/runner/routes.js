@@ -7,11 +7,6 @@ angular.module('frontend.runner')
 		url: '/runner',
 		abstract: true,
 		template: '<ui-view/>',
-		resolve: {
-			auth: function($auth){
-				return $auth.validateUser();
-			}
-		}
 	})
 	.state('runner.home', {
 		url: '/home',

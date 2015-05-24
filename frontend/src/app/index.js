@@ -6,24 +6,17 @@ angular.module('frontend', [
 	'frontend.public',
 
 	'ngAnimate', 
-	'ngCookies', 
 	'ngTouch', 
 	'ngSanitize', 
 	'ngResource', 
 	'ui.router', 
 	'ui.bootstrap', 
-	'rails', 
-	'ng-token-auth'
 
-]).config(function($authProvider){
-	$authProvider.configure({
-		apiUrl: 'http://localhost:3000/api/v1'
-	});
-}).run(["$rootScope", "$state", "$location", function($rootScope, $state, $location){
-	$rootScope.$on('auth:login-success', function(evt, user){
-		if(user.admin)
-			$state.go('admin.home');
-		else
-			$state.go('runner.home');
-	});
+]).run(["$rootScope", "$state", "$location", function($rootScope, $state, $location){
+	// $rootScope.$on('auth:login-success', function(evt, user){
+	// 	if(user.admin)
+	// 		$state.go('admin.home');
+	// 	else
+	// 		$state.go('runner.home');
+	// });
 }]);
