@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('frontend')
-.factory('AuthService', ["$http", "LocalService", "Roles", "CurrentUser","APIUrl", 
-	function($http, LocalService, Roles, User, CurrentUser, APIUrl) {
+angular.module('frontend.common')
+.factory('AuthService', ["$http", "LocalService", "Roles", "CurrentUser","Api", 
+	function($http, LocalService, Roles, User, CurrentUser, Api) {
 	return {
 		authorize: function(access) {
 			if (access === Roles.runner.level) {
@@ -24,7 +24,7 @@ angular.module('frontend')
 			return false;
 		},
 		login: function(credentials) {
-			var login = $http.post(APIUrl.v1 + '/auth', credentials);
+			var login = $http.post(Roles.api + '/auth', credentials);
 			login.success(function(result) {
 				LocalService.set('auth_token', JSON.stringify(result));
 			});

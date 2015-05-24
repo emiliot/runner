@@ -6,11 +6,9 @@ angular.module('frontend.admin')
 	.state('admin', {
 		url: '/admin',
 		abstract: true,
-		template: '<ui-view/>',
-		resolve: {
-			auth: function($auth){
-				return $auth.validateUser();
-			}
+		template: 'app/components/admin/layout.html',
+		data : {
+			access : 2
 		}
 	})
 	.state('admin.home', {

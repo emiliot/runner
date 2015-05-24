@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('frontend').factory('LocalService', function(){
+angular.module('frontend.common').factory('LocalService', function(){
 	return {
 		get : function(key){
 			return localStorage.getItem(key);

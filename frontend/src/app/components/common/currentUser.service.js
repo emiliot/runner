@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('frontend').factory('CurrentUser', ["LocalService", function(LocalService){
+angular.module('frontend.common').factory('CurrentUser', ["LocalService", function(LocalService){
 	return {
 		user : function(){
 			if(LocalService.get('auth_token')){

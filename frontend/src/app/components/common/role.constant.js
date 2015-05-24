@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('frontend').constant('Roles', {
+angular.module('frontend.common').constant('Roles', {
 	anon: {
 		state : 'public.home',
 		level : 0
@@ -12,5 +12,6 @@ angular.module('frontend').constant('Roles', {
     runner: {
     	state : 'runner.home',
     	level : 2
-    }
+    },
+    api : '/api/v1'
 });

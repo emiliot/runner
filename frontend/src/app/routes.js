@@ -8,7 +8,7 @@ angular.module('frontend')
         url: '/main',
         controller: 'MainCtrl',
         data: {
-            access: Roles.anon.level
+            access: 0
         }
     });
 

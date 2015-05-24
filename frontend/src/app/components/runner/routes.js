@@ -6,7 +6,10 @@ angular.module('frontend.runner')
 	.state('runner', {
 		url: '/runner',
 		abstract: true,
-		template: '<ui-view/>',
+		template: 'app/components/runner/layout.html',
+		data: {
+			access: 1
+		}
 	})
 	.state('runner.home', {
 		url: '/home',

@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('frontend', [
+	'frontend.common',
+	'frontend.public',
 	'frontend.admin',
 	'frontend.runner',
-	'frontend.public',
 
 	'ngAnimate', 
 	'ngTouch', 
@@ -14,7 +15,7 @@ angular.module('frontend', [
 
 ]).run(["$rootScope", "$state", "AuthService", function($rootScope, $state, AuthService){
 	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-		console.log(toState);
+		// console.log(toState);
 		if(!AuthService.authorize(toState.data.access)){
 			event.preventDefault();
 			$state.go('public.login');

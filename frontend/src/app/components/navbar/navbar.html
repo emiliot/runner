@@ -1,7 +1,7 @@
 <nav class="navbar navbar-static-top navbar-inverse" ng-controller="NavbarCtrl">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" ui-sref="home">
+			<a class="navbar-brand" ui-sref="public.home">
 				<span class="glyphicon glyphicon-home"></span> Runner
 			</a>
 		</div>
@@ -9,7 +9,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-show="!user.name">
-					<a ui-sref="login">Sign in</a>
+					<a ui-sref="public.login">Sign in</a>
 				</li>
 				<li ng-show="user.name">
 					<span>Wellcome {{user.name}}</span>

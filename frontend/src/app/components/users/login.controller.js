@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('frontend')
-.controller('UserLoginCtrl', ['$scope',"Auth", "$rootScope", function($scope, Auth, $rootScope){
+.controller('LoginCtrl', ['$scope','AuthService', '$rootScope', '$state', function($scope, AuthService, $rootScope, $state){
 	$scope.user = {};
 	$scope.newUser = {};
 
 	$scope.submitLogin = function(user){
-		Auth.login(user)
+		AuthService.login(user)
 		.success(function(data){
 			$rootScope.$broadcast('auth:successful-sign-in');
 			$state.go('main');
