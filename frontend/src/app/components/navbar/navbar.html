@@ -7,13 +7,17 @@
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-			<ul class="nav navbar-nav navbar-right">
-				<li ng-show="!user.name">
+			<ul class="nav navbar-nav navbar-right" ng-show="!user.name">
+				<li>
 					<a ui-sref="public.login">Sign in</a>
 				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right" ng-show="user.name">
 				<li ng-show="user.name">
-					<span>Wellcome {{user.name}}</span>
-					<span><a href ng-click="signOut()">Sign out</a></span>
+					<a> <strong>{{user.name}}</strong></a>
+				</li>
+				<li>
+					<a href ng-click="signOut()">Sign out</a>
 				</li>
 			</ul>
 		</div>
