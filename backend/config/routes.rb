@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope '/api/v1' do
     resources :users, except: [:new, :edit]
-    
+    resources :runs, except: [:new, :edit]
     post 'auth' => 'auth#authenticate'
   end
   # The priority is based upon order of creation: first created -> highest priority.
