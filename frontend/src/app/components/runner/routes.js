@@ -1,14 +1,15 @@
 'use strict';
 
 angular.module('frontend.runner')
-	.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'Roles',
+		function ($stateProvider, $urlRouterProvider, $locationProvider, Roles) {
 	$stateProvider
 	.state('runner', {
 		url: '/runner',
 		abstract: true,
-		template: 'app/components/runner/layout.html',
+		templateUrl: 'app/components/runner/layout.html',
 		data: {
-			access: 1
+			access: Roles.runner.level
 		}
 	})
 	.state('runner.home', {
@@ -22,6 +23,5 @@ angular.module('frontend.runner')
 	});
 
 	$locationProvider.html5Mode(true);
-	$urlRouterProvider.otherwise('/runner/home');
 
-});
+}]);

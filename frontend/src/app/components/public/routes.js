@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('frontend.public')
-.config(['$stateProvider', function($stateProvider){
+.config(['$stateProvider','Roles', function($stateProvider, Roles){
 	$stateProvider
         .state('public',{
             url: '/public',
             templateUrl: 'app/components/public/layout.html',
             abstract: true,
             data: {
-                access: 0
+                access: Roles.anon.level
             }
         })
         .state('public.home', {

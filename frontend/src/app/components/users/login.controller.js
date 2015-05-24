@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('frontend')
-.controller('LoginCtrl', ['$scope','AuthService', '$rootScope', '$state', function($scope, AuthService, $rootScope, $state){
+.controller('LoginCtrl', ['$scope','AuthService', '$rootScope', '$state', 
+	function($scope, AuthService, $rootScope, $state){
+
 	$scope.user = {};
 	$scope.newUser = {};
 

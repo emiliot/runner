@@ -1,14 +1,15 @@
 'use strict';
 
 angular.module('frontend.admin')
-	.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'Roles',
+		function ($stateProvider, $urlRouterProvider, $locationProvider, Roles) {
 	$stateProvider
 	.state('admin', {
 		url: '/admin',
 		abstract: true,
 		templateUrl: 'app/components/admin/layout.html',
 		data : {
-			access : 2
+			access : Roles.admin.level
 		}
 	})
 	.state('admin.home', {
@@ -18,6 +19,5 @@ angular.module('frontend.admin')
 	})
 
 	$locationProvider.html5Mode(true);
-	$urlRouterProvider.otherwise('/admin/home');
 
-});
+}]);
