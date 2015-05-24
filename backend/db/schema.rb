@@ -14,9 +14,15 @@
 ActiveRecord::Schema.define(version: 20150524055120) do
 
   create_table "runs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "date_run",     default: '2015-05-24 00:00:00', null: false
+    t.integer  "time_run",     default: 0,                     null: false
+    t.integer  "distance_run", default: 0,                     null: false
+    t.integer  "user_id"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
+
+  add_index "runs", ["user_id"], name: "index_runs_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.boolean  "admin",                       default: false

@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, length: { maximum: 50}
 	validates :password, presence: true, length: { in: 6..20 }
 
+	has_many :runs, dependent: :destroy
+
 	def generate_auth_token
 		payload = { user_id: self.id }
 		AuthToken.encode(payload)
