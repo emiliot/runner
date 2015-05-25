@@ -38,6 +38,11 @@
 	padding-top: 0.5em;
 }
 
+.title-button {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
 @media (min-width: 768px) { 
 	.run-data{
 		line-height: 3.0em;
@@ -45,7 +50,7 @@
 	}
 
 	.date{
-		line-height: 1.5em;
+		line-height: 3.0em;
 		height: 50px;
 	}
 
@@ -56,6 +61,9 @@
 	.run-actions{
 		line-height: 2.5em;
 		padding-right: 30px;
+	}
+	.speed{
+		padding-top: 3px;
 	}
 }
 
