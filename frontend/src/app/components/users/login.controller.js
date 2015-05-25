@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('frontend')
-.controller('LoginCtrl', ['$scope','AuthService', '$rootScope', '$state', 
-	function($scope, AuthService, $rootScope, $state){
+.controller('LoginCtrl', ['$scope','AuthService', '$rootScope', '$state','User','LocalService',
+	function($scope, AuthService, $rootScope, $state, User, LocalService){
 
 	$scope.user = {};
 	$scope.newUser = {};
@@ -19,6 +19,15 @@ angular.module('frontend')
 	};
 
 	$scope.registerUser = function(user){
-		//TODO
+		var next = new User(user);
+		next.$save(function(data){
+			var savedUser = {
+				auth_token : data.auth_token,
+				user : data.user
+			};
+			LocalService.set('auth_token', JSON.stringify(savedUser));
+			$rootScope.$broadcast('auth:successful-sign-in');
+			$state.go('main');
+		});
 	}
 }]);

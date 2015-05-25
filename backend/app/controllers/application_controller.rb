@@ -46,4 +46,14 @@ class ApplicationController < ActionController::API
 			end
 		end
 	end
+
+	def render_authenticated_user(user)
+		render json: { 
+    		auth_token: user.generate_auth_token,
+    		user: {
+    			name: user.name,
+    			role: user.admin ? 'admin' : 'runner'
+    		}
+    	}, status: :ok
+	end
 end

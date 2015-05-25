@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :check_access, :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy]
+  skip_before_action :set_current_user, only: [:create]
+  skip_before_action :authenticate_request, only: [:create]
 
   # GET /users
   # GET /users.json
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      render_authenticated_user(@user)
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -54,13 +56,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params[:user]
-    end
-
-    def check_access
-      puts @current_user.inspect
-      if !@current_user.admin
-        render json: { error: 'Invalid email or password' }, status: :unauthorized
-      end
+      params.permit(:name, :password, :password_confirm, :email)
     end
 end

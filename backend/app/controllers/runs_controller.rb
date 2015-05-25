@@ -4,7 +4,7 @@ class RunsController < ApplicationController
 	# GET /runs
 	# GET /runs.json
 	def index
-		@runs = Run.all
+		@runs = @current_user.runs
 
 		render json: @runs
 	end
