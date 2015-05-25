@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20150524055120) do
 
   create_table "runs", force: :cascade do |t|
-    t.datetime "date_run",     default: '2015-05-24 00:00:00', null: false
+    t.datetime "date_run",     default: '2015-05-25 00:00:00', null: false
     t.integer  "time_run",     default: 0,                     null: false
-    t.integer  "distance_run", default: 0,                     null: false
+    t.float    "distance_run", default: 0.0,                   null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
