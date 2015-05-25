@@ -31,27 +31,32 @@ class RunsController < ApplicationController
 	# PATCH/PUT /runs/1
 	# PATCH/PUT /runs/1.json
 	def update
-		@run = Run.find(params[:id])
-
-		if @run.update(run_params)
-			render json: @run, status: :ok
+		if @run == nil
+			render json: "Not Found", status: :not_found
 		else
-			render json: @run.errors, status: :unprocessable_entity
+			if @run.update(run_params)
+				render json: @run, status: :ok
+			else
+				render json: @run.errors, status: :unprocessable_entity
+			end
 		end
 	end
 
 	# DELETE /runs/1
 	# DELETE /runs/1.json
 	def destroy
-		@run.destroy
-
-		head :no_content
+		if @run == nil
+			render json: "Not found", status: :not_found
+		else
+			@run.destroy
+			head :no_content
+		end
 	end
 
 	private
 
 	def set_run
-		@run = Run.find(params[:id])
+		@run = Record.find(params[:id], user_id: @current_user.id) rescue nil
 	end
 
 	def run_params
