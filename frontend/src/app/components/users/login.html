@@ -11,7 +11,7 @@
         </div>
         
         <div class="col-md-offset-2 col-md-4">
-            <form ng-submit="registerUser(newUser)" role="form" ng-init="newUser = {}">
+            <form ng-submit="registerUser(newUser)" class="form-signin" role="form" ng-init="newUser = {}">
                 <h2 class="form-signin-heading">or Register</h2>
                 <input type="text" class="form-control" placeholder="name" ng-model="newUser.name" required autofocus/>
                 <input type="email" class="form-control" placeholder="email" ng-model="newUser.email" required autofocus/>

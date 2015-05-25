@@ -11,7 +11,8 @@ angular.module('frontend', [
 	'ngSanitize', 
 	'ngResource', 
 	'ui.router', 
-	'ui.bootstrap', 
+	'ui.bootstrap',
+	'chart.js'
 
 ]).run(["$rootScope", "$state", "AuthService", function($rootScope, $state, AuthService){
 	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
