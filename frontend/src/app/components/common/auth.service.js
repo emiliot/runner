@@ -42,7 +42,6 @@ angular.module('frontend.common')
 		request: function(config) {
 			var token;
 			if (LocalService.get('auth_token')) {
-				console.log(angular.fromJson(LocalService.get('auth_token')));
 				token = angular.fromJson(LocalService.get('auth_token')).auth_token;
 			}
 			if (token) {

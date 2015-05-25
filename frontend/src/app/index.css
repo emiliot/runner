@@ -12,3 +12,49 @@
 .thumbnail img.pull-right {
   width: 50px;
 }
+
+.run-row {
+	background-color: #eee;
+	margin-bottom: 5px;
+}
+
+.run-data {
+	line-height: 1.6em;
+}
+.date {
+	background-color:orange;
+	color:white;
+	font-size: medium;
+	font-weight: bold;
+}
+
+.speed {
+	font-size: large;
+	font-weight: bold;
+	line-height: normal;
+}
+
+.run-actions {
+	padding-top: 0.5em;
+}
+
+@media (min-width: 992px) { 
+	.run-data{
+		line-height: 3.0em;
+		font-size: large;
+	}
+
+	.date{
+		line-height: 3.0em;
+		height: 50px;
+	}
+
+	.run-row{
+		height: 50px;
+	}
+
+	.run-actions{
+		line-height: 2.5em;
+		padding-right: 30px;
+	}
+}
