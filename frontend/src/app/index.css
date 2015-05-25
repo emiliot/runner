@@ -38,14 +38,14 @@
 	padding-top: 0.5em;
 }
 
-@media (min-width: 992px) { 
+@media (min-width: 768px) { 
 	.run-data{
 		line-height: 3.0em;
 		font-size: large;
 	}
 
 	.date{
-		line-height: 3.0em;
+		line-height: 1.5em;
 		height: 50px;
 	}
 
@@ -56,5 +56,11 @@
 	.run-actions{
 		line-height: 2.5em;
 		padding-right: 30px;
+	}
+}
+
+@media (min-width: 992px){
+	.date{
+		line-height: 3.0em;
 	}
 }
