@@ -3,23 +3,40 @@
 angular.module('frontend.runner')
 .controller('RunnerCtrl', ['$scope', 'Run', '$modal',  function($scope, Run, $modal){
 
-	$scope.open = function($event) {
+	$scope.open = function($event, id) {
 		$event.preventDefault();
 		$event.stopPropagation();
 
-		$scope.opened = true;
+		if(id === 'add')
+			$scope.openedAdd = true;
+		else if(id === 'from')
+			$scope.openedFrom = true;
+		else if(id === 'to')
+			$scope.openedTo = true;
 	};
 
 	$scope.dateOptions = {
 		formatYear: 'yy',
 		startingDay: 1
 	};
-
 	$scope.format = 'dd-MMMM-yyyy';
 
 
 	$scope.runs = [];
 	$scope.run = {
+	};
+
+	$scope.dateFilter = {};
+	$scope.greaterThan = function(prop, val){
+		return function(item){
+			if(!val || new Date(item[prop]) > new Date(val))return true;
+		}
+	};
+
+	$scope.lowerThan = function(prop, val){
+		return function(item){
+			if(!val || new Date(item[prop]) < new Date(val))return true;
+		}
 	};
 
 	Run.query(function(data){
@@ -31,6 +48,7 @@ angular.module('frontend.runner')
 		var nextRun = new Run(run);
 		nextRun.$save(function(data){
 			$scope.runs.push(data);
+			$scope.run = {};
 		}, function(data){
 			console.log('error');
 		});
