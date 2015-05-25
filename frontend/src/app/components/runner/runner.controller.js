@@ -1,6 +1,8 @@
 'use strict';
 
 angular.module('frontend.runner')
-.controller('RunnerCtrl', ['$scope', function($scope){
-	console.log('RunnerCtrl');
+.controller('RunnerCtrl', ['$scope', 'Run',  function($scope, Run){
+	Run.query(function(data){
+		console.log(data);
+	});
 }]);
