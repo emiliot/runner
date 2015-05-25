@@ -12,12 +12,22 @@
 					<a ui-sref="public.login">Sign in</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right" ng-show="user.name">
+			<!-- <ul class="nav navbar-nav navbar-right" ng-show="user.name">
 				<li ng-show="user.name">
 					<a> <strong>{{user.name}}</strong></a>
 				</li>
 				<li>
 					<a href ng-click="signOut()">Sign out</a>
+				</li>
+			</ul> -->
+			<ul class="nav navbar-nav navbar-right" ng-show="user.name">
+				<li class="dropdown" dropdown>
+					<a href="#" class="dropdown-toggle" dropdown-toggle  >Welcome, {{ user.name }} <span class="caret"></span></a>
+
+					<ul class="dropdown-menu" dropdown-menu>
+						<li><a ui-sref="runner.stats">Statistics</a></li>
+						<li><a href ng-click="signOut()">Sign out</a></li>
+					</ul>
 				</li>
 			</ul>
 		</div>

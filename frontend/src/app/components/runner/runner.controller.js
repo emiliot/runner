@@ -10,7 +10,14 @@ angular.module('frontend.runner')
 	});
 
 	$scope.delete = function(run){
-		console.log(run);
+		run.$delete(function(){
+			for(var i=0, n=$scope.runs.length; i<n; ++i){
+				if($scope.runs[i].id === run.id){
+					$scope.runs.splice(i,1);
+					break;
+				}
+			}
+		});
 	};
 
 	$scope.edit = function(run){

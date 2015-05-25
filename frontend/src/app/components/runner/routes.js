@@ -20,6 +20,11 @@ angular.module('frontend.runner')
 	.state('runner.account', {
 		url: '/account',
 		templateUrl: 'app/components/users/account.html'
+	})
+	.state('runner.stats', {
+		url: '/stats',
+		templateUrl: 'app/components/runner/stats.html',
+		controller: 'StatsCtrl'
 	});
 
 	$locationProvider.html5Mode(true);
